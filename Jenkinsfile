@@ -1,11 +1,9 @@
 pipeline {
-    agent {
-        docker { image 'maven:3.9.0' }
-    }
+    agent any
     stages {
-        stage('Build') {
+        stage('Build') { 
             steps {
-                sh 'mvn clean install'
+                bat 'mvn -B -DskipTests clean package' 
             }
         }
     }
